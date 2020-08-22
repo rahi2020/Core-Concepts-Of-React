@@ -14,9 +14,13 @@ function App() {
       <header className="App-header">
         <Users></Users>
         <Counter></Counter>
+        <Name name="Jasim"></Name>
+        <Name name="Karim"></Name>
+        <Name name="Jamil"></Name>
         <Product product={products[0]}></Product>
         <Product product={products[1]}></Product>
         <Product product={products[2]}></Product>
+        <MovieCounter></MovieCounter>
        
       </header>
     </div>
@@ -60,6 +64,22 @@ function Users() {
 }
 
 
+function Name(props) {
+  const style = {
+    border:'2px solid yellow',
+    margin: '20px', 
+    padding:'20px'
+  }
+  return(
+    <div style={style}>
+      <h1>Hello Word</h1>
+      <p>My name is {props.name}</p>
+    </div>
+  )
+}
+
+
+
 
 
 function Product(props) {
@@ -78,6 +98,19 @@ function Product(props) {
       <h5>{props.product.name}</h5>
       <h4>{props.product.price}</h4>
       <button>Buy Now</button>
+    </div>
+  )
+}
+function MovieCounter() {
+  const nice = {
+    marginTop: '5rem'
+  }
+  const [count, setCount] = useState(5);
+  const handleClick = () => setCount(count + 1);
+  return(
+    <div style={nice}>
+      <button onClick={handleClick}>Add movie</button>
+      <h3>Number of movies: {count}</h3>
     </div>
   )
 }
